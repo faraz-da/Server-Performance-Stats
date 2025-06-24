@@ -10,8 +10,6 @@ echo "---------------------"
 read total used <<< $(free | awk 'NR==2{print $2, $3}')
 percent=$(awk "BEGIN {printf \"%.2f\", $used/$total*100}")
 
-Total_memory=$((total/1024))
-Used_memory=$((used/1024))
 
 echo "Memory Usage Info (/):"
 echo "---------------------"
@@ -20,10 +18,6 @@ echo "Used memory : $((used/1024)) MB"
 echo "Used percent: $percent %"
 
 read total used free percent <<< $(df / | awk 'NR==2 {print $2, $3, $4, $5}')
-
-total_disk=$((total))
-used_disk=$((used))
-free_disk= $((free))
 
 echo "---------------------"
 echo "Disk Usage Info (/):"
